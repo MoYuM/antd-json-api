@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "read": "node index.js",
+    "debug": "node index.js --inspect",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

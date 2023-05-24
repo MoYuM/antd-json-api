@@ -6,7 +6,6 @@ const { marked } = require('marked')
 const ANTD_GIT_URL = 'https://github.com/ant-design/ant-design.git';
 const OUT_PUT = 'api.json';
 
-const lexer = new marked.Lexer()
 
 // 克隆仓库
 // exec(`git clone ${ANTD_GIT_URL}`, (err) => {
@@ -42,7 +41,7 @@ fs.readdir('./ant-design/components', { withFileTypes: true }, (err, files) => {
           reject(err)
           return;
         };
-        const {api, children} = readFile(data)
+        const { api, children } = readFile(data)
         obj.componentList.push({
           component: file.name,
           children,
@@ -62,6 +61,7 @@ fs.readdir('./ant-design/components', { withFileTypes: true }, (err, files) => {
 
 
 function readFile(data) {
+  const lexer = new marked.Lexer()
   const tokens = lexer.lex(data)
   const children = [];
   const api = [];
